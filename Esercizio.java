@@ -68,6 +68,7 @@ class Esercizio {
                 VisualizzaVottre(V[N], N);
             }
             if(o != 1 || o != 2 || o != 3 || o != 4 || o != 5 || o != 6){
+                
                 System.out.println("Inserire un valore valido");
             }
         }while(o != 6);
