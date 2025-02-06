@@ -22,7 +22,7 @@ class Esercizio {
             V[j] = W[j];
         }
 
-        nDimensione = dimensione + 1;
+        nDimensione = dimensione + 1; 
         return nDimensione;
     }
     static int EliminaElemento(int[] V, int N, int ie){
@@ -46,7 +46,7 @@ class Esercizio {
         i = 0;
         while(i < N2){
             V[i] = W[i];
-            i++
+            i++;
         }
 
         return N2;
@@ -65,8 +65,37 @@ class Esercizio {
         return i;
     }
 
-    static int ElminaDuplicati(int[] V , int dimensione){
-        return dimensione -1;
+    static int ElminaDuplicati(int[] V , int N){
+        int i, j , k;
+        int N2;
+        int[] W = new int[N];
+        boolean spot = false;
+
+        k = 0;
+        i = 0;
+        while (i < N) {
+            spot = false;
+            j = i + 1;
+            while (j <  N && spot == false) {
+                if(V[i] == W[j]){
+                    spot = true;
+                }
+                j++;
+            }
+            if(spot == false){
+                W[k] = V[i];
+                k++;
+            }
+            i++;
+        }
+        
+        for(i = 0; i < k; i++){
+            V[i] = W[i];
+        }
+
+        N2 = k;
+
+        return N2;
     }
 
     static void VisualizzaVettore(int[] V, int dimensione){
@@ -79,12 +108,12 @@ class Esercizio {
         int N2;
         int i;
         N2 = N - 1;
-   
+    
         i = ie;
         while(i <= N-2){
             V[i] = V[i+1];
             i = i+1;
-        }      
+        }       
         return N2;
     }
 
@@ -110,7 +139,7 @@ class Esercizio {
         System.out.print("Inserire grandezza vettore: ");
         N = in.nextInt();
         int[] V = new int[N*10];
-       
+        
         for(i=0; i<N; i++){
             V[i] = 0;    
         }
@@ -144,7 +173,7 @@ class Esercizio {
                 }else{
                     System.out.println("Il valore è presente nella posizione: " + valore);
                 }
-               
+                
             }
             if(o == 4){
                 N = ElminaDuplicati(V,N);
@@ -168,10 +197,10 @@ class Esercizio {
                 }while(i<0 || i>=N);
                 N = InserisciElementoOtt(V,N,valore,i);
             }
-            if(o < 1 || i >9){
+            if(o < 1 || i >8){
                 System.out.println("Inserire un valore valido");
             }
-        }while(o != 9);
+        }while(o != 8);
     }
 }
 
